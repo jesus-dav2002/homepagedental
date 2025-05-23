@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DentoCita - Gestor de Citas</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: white;
+      color: #003366;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      background-color: #0074D9;
+      color: white;
+    }
+
+    header .logo {
+        display: flex;
+        align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    header .logo picture img{
+        margin-left: 10px;
+        width: 50px;
+        height: 50px;
+    }
+
+    header nav a {
+      margin-left: 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      width: 100%;
+      position: relative;
+      height: 100vh;
+      background: url('./accenst/WhatsApp\ Image\ 2025-05-22\ at\ 18.10.28.jpeg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-overlay {
+      width: 80%;
+      background: rgba(173, 216, 230, 0.8);
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      backdrop-filter: blur(5px);
+    }
+
+    .hero-overlay h1 {
+      font-size: 48px;
+      margin: 0;
+    }
+
+    .hero-overlay p {
+      font-size: 20px;
+      margin: 10px 0 20px;
+    }
+
+    .hero-overlay button {
+      background-color: #0074D9;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .info-section {
+      display: flex;
+      padding: 60px 40px;
+      gap: 40px;
+      align-items: center;
+      background-color: #f2f9ff;
+    }
+
+    .info-section .text {
+      flex: 1;
+    }
+
+    .info-section .image {
+      flex: 1;
+    }
+
+    .info-section img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+    }
+
+    .social-icons a {
+      margin-left: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .social-icons a img {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.3s;
+    }
+
+    .social-icons a:hover img {
+      transform: scale(1.1);
+    }
+
+    .social-icons a::after {
+      content: attr(data-label);
+      position: absolute;
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+      color: #003366;
+      padding: 2px 8px;
+      border-radius: 5px;
+      font-size: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .social-icons a:hover::after {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Dental San Cristóbal
+        <picture><img src="./accenst/logos/logoDSC.png" alt="" srcset=""></picture>
+    </div>
+    <nav>
+      <a href="#">Registrarse</a>
+      <a href="#">Acceder</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-overlay">
+      <h1>Dental San Cristobal</h1>
+      <p>Agenda tu cita</p>
+      <button>Acceder</button>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <div class="text">
+      <h2>¿Qué es DentoCita?</h2>
+      <p>DentoCita es una herramienta diseñada para facilitarte el proceso de agendamiento de tus citas odontológicas en Dental San Cristóbal. Con nuestra aplicación puedes programar tus citas, recibir recordatorios, y mantenerte informado sobre tus tratamientos de forma sencilla y rápida.</p>
+    </div>
+    <div class="image">
+      <img src="https://via.placeholder.com/500x300" alt="Explicación de la app">
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <p>Dental San Cristóbal © 2025<br>prolongación de la 5ta Av. urbanización propatria calle 6 Nro 2-81 frente al mural de corpointa (DIMO) La Concordia, San Cristóbal, Venezuela 5001</p>
+    </div>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/dental_s.c?igsh=MWVuZXdienc5ZWM3dw==" target="_blank" data-label="Instagram">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+      </a>
+      <a href="https://wa.link/von2ou" target="_blank" data-label="WhatsApp">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
