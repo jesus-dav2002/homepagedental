@@ -4,190 +4,127 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DentoCita - Gestor de Citas</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: white;
-      color: #003366;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 40px;
-      background-color: #0074D9;
-      color: white;
-    }
-
-    header .logo {
-        display: flex;
-        align-items: center;
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    header .logo picture img{
-        margin-left: 10px;
-        width: 50px;
-        height: 50px;
-    }
-
-    header nav a {
-      margin-left: 20px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .hero {
-      width: 100%;
-      position: relative;
-      height: 100vh;
-      background: url('./accenst/WhatsApp\ Image\ 2025-05-22\ at\ 18.10.28.jpeg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-overlay {
-      width: 80%;
-      background: rgba(173, 216, 230, 0.8);
-      padding: 40px;
-      border-radius: 15px;
-      text-align: center;
-      backdrop-filter: blur(5px);
-    }
-
-    .hero-overlay h1 {
-      font-size: 48px;
-      margin: 0;
-    }
-
-    .hero-overlay p {
-      font-size: 20px;
-      margin: 10px 0 20px;
-    }
-
-    .hero-overlay button {
-      background-color: #0074D9;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    .info-section {
-      display: flex;
-      padding: 60px 40px;
-      gap: 40px;
-      align-items: center;
-      background-color: #f2f9ff;
-    }
-
-    .info-section .text {
-      flex: 1;
-    }
-
-    .info-section .image {
-      flex: 1;
-    }
-
-    .info-section img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    footer {
-      background-color: #003366;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-    }
-
-    .social-icons a {
-      margin-left: 15px;
-      position: relative;
-      display: inline-block;
-    }
-
-    .social-icons a img {
-      width: 30px;
-      height: 30px;
-      transition: transform 0.3s;
-    }
-
-    .social-icons a:hover img {
-      transform: scale(1.1);
-    }
-
-    .social-icons a::after {
-      content: attr(data-label);
-      position: absolute;
-      bottom: -25px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: white;
-      color: #003366;
-      padding: 2px 8px;
-      border-radius: 5px;
-      font-size: 12px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s;
-    }
-
-    .social-icons a:hover::after {
-      opacity: 1;
-    }
-  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <div class="logo">Dental San Cristóbal
-        <picture><img src="./accenst/logos/logoDSC.png" alt="" srcset=""></picture>
+<body class="m-0 font-sans bg-white text-[#003366]">
+
+  <!-- Header -->
+  <header class="flex justify-between items-center px-10 py-2 bg-[#0074D9] text-white">
+    <div class="logo flex items-center text-2xl font-bold">
+      Dental San Cristóbal
+      <picture>
+        <img src="./accenst/logos/logoDSC.png" alt="" class="ml-2 w-[50px] h-[50px]">
+      </picture>
     </div>
-    <nav>
-      <a href="#">Registrarse</a>
-      <a href="#">Acceder</a>
+    <nav class="flex">
+      <a href="#" class="ml-5 font-bold text-white no-underline">Registrarse</a>
+      <a href="#" class="ml-5 font-bold text-white no-underline">Acceder</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-overlay">
-      <h1>Dental San Cristobal</h1>
-      <p>Agenda tu cita</p>
-      <button>Acceder</button>
+  <!-- Hero -->
+  <section class="hero w-full relative h-screen bg-[url('./accenst/fondo.jpeg')] bg-cover bg-center flex items-center justify-center">
+    <div class="w-4/5 bg-[rgba(173,216,230,0.8)] p-10 rounded-xl text-center backdrop-blur-sm">
+      <h1 class="text-5xl m-0">Dental San Cristobal</h1>
+      <p class="text-xl mt-2 mb-5">Agenda tu cita</p>
+      <button class="bg-[#0074D9] text-white border-none px-5 py-2 text-base rounded-md cursor-pointer">Acceder</button>
     </div>
   </section>
 
-  <section class="info-section">
-    <div class="text">
-      <h2>¿Qué es DentoCita?</h2>
+ <!-- Carrusel de Tarjetas con Botones -->
+  <section class="h-screen px-10 py-20 bg-white flex flex-col justify-center relative">
+    <h2 class="text-3xl font-bold text-center mb-10">Descubre nuestras funcionalidades</h2>
+    <div class="relative">
+      <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white px-3 py-2 rounded-full z-10">&#8592;</button>
+      <div id="carousel" class="flex space-x-6 overflow-hidden transition-transform duration-500">
+        <!-- Nueve tarjetas verticales -->
+        <div class="min-w-[200px] h-[400px] bg-blue-100 rounded-3xl p-4 shadow-lg flex flex-col justify-between">
+          <img src="https://via.placeholder.com/180x200" alt="Función 1" class="rounded-xl" />
+          <p class="text-center">Programa tus citas con facilidad y sin complicaciones desde cualquier dispositivo.</p>
+        </div>
+        <div class="min-w-[200px] h-[400px] bg-blue-100 rounded-3xl p-4 shadow-lg flex flex-col justify-between">
+          <img src="https://via.placeholder.com/180x200" alt="Función 2" class="rounded-xl" />
+          <p class="text-center">Recibe notificaciones y recordatorios para no perder ninguna cita.</p>
+        </div>
+        <div class="min-w-[200px] h-[400px] bg-blue-100 rounded-3xl p-4 shadow-lg flex flex-col justify-between">
+          <img src="https://via.placeholder.com/180x200" alt="Función 3" class="rounded-xl" />
+          <p class="text-center">Consulta tu historial de tratamientos y mantente informado.</p>
+        </div>
+        <div class="min-w-[200px] h-[400px] bg-blue-100 rounded-3xl p-4 shadow-lg flex flex-col justify-between">
+          <img src="https://via.placeholder.com/180x200" alt="Función 4" class="rounded-xl" />
+          <p class="text-center">Comunícate directamente con el consultorio desde la app.</p>
+        </div>
+        <div class="min-w-[200px] h-[400px] bg-blue-100 rounded-3xl p-4 shadow-lg flex flex-col justify-between">
+          <img src="https://via.placeholder.com/180x200" alt="Función 5" class="rounded-xl" />
+          <p class="text-center">Visualiza tus próximas citas de manera clara y ordenada.</p>
+        </div>
+        <div class="min-w-[200px] h-[400px] bg-blue-100 rounded-3xl p-4 shadow-lg flex flex-col justify-between">
+          <img src="https://via.placeholder.com/180x200" alt="Función 6" class="rounded-xl" />
+          <p class="text-center">Gestiona múltiples pacientes desde una misma cuenta.</p>
+        </div>
+        <div class="min-w-[200px] h-[400px] bg-blue-100 rounded-3xl p-4 shadow-lg flex flex-col justify-between">
+          <img src="https://via.placeholder.com/180x200" alt="Función 7" class="rounded-xl" />
+          <p class="text-center">Accede a consejos y recordatorios personalizados.</p>
+        </div>
+        <div class="min-w-[200px] h-[400px] bg-blue-100 rounded-3xl p-4 shadow-lg flex flex-col justify-between">
+          <img src="https://via.placeholder.com/180x200" alt="Función 8" class="rounded-xl" />
+          <p class="text-center">Recibe alertas de disponibilidad de citas urgentes.</p>
+        </div>
+        <div class="min-w-[200px] h-[400px] bg-blue-100 rounded-3xl p-4 shadow-lg flex flex-col justify-between">
+          <img src="https://via.placeholder.com/180x200" alt="Función 9" class="rounded-xl" />
+          <p class="text-center">Guarda tus preferencias y personaliza la experiencia.</p>
+        </div>
+      </div>
+      <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white px-3 py-2 rounded-full z-10">&#8594;</button>
+    </div>
+  </section>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+
+  <section class="h-screen flex px-10 gap-10 items-center bg-[#f2f9ff]">
+    <div class="flex-1">
+      <h2 class="text-2xl font-bold mb-4">¿Qué es DentoCita?</h2>
       <p>DentoCita es una herramienta diseñada para facilitarte el proceso de agendamiento de tus citas odontológicas en Dental San Cristóbal. Con nuestra aplicación puedes programar tus citas, recibir recordatorios, y mantenerte informado sobre tus tratamientos de forma sencilla y rápida.</p>
     </div>
-    <div class="image">
-      <img src="https://via.placeholder.com/500x300" alt="Explicación de la app">
+    <div class="flex-1">
+      <img src="https://via.placeholder.com/500x300" alt="Explicación de la app" class="w-full rounded-[10px]" />
     </div>
   </section>
 
-  <footer>
-    <div>
-      <p>Dental San Cristóbal © 2025<br>prolongación de la 5ta Av. urbanización propatria calle 6 Nro 2-81 frente al mural de corpointa (DIMO) La Concordia, San Cristóbal, Venezuela 5001</p>
+
+  <!-- Footer -->
+  <footer class="bg-[#003366] text-white flex flex-col md:flex-row justify-between items-center px-10 py-5">
+    <div class="text-center md:text-left mb-4 md:mb-0">
+      <p>Dental San Cristóbal © 2025<br>
+        prolongación de la 5ta Av. urbanización propatria calle 6 Nro 2-81 frente al mural de corpointa (DIMO) La Concordia, San Cristóbal, Venezuela 5001
+      </p>
     </div>
-    <div class="social-icons">
-      <a href="https://www.instagram.com/dental_s.c?igsh=MWVuZXdienc5ZWM3dw==" target="_blank" data-label="Instagram">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+    <div class="flex space-x-4 relative">
+      <a href="https://www.instagram.com/dental_s.c?igsh=MWVuZXdienc5ZWM3dw==" target="_blank" class="relative group" data-label="Instagram">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="w-[30px] h-[30px] transition-transform duration-300 group-hover:scale-110">
+        <span class="absolute bottom-[-30px] left-1/2 -translate-x-1/2 bg-white text-[#003366] px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Instagram</span>
       </a>
-      <a href="https://wa.link/von2ou" target="_blank" data-label="WhatsApp">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+      <a href="https://wa.link/von2ou" target="_blank" class="relative group" data-label="WhatsApp">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" class="w-[30px] h-[30px] transition-transform duration-300 group-hover:scale-110">
+        <span class="absolute bottom-[-30px] left-1/2 -translate-x-1/2 bg-white text-[#003366] px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">WhatsApp</span>
       </a>
     </div>
   </footer>
+
+  <script>
+    const carousel = document.getElementById('carousel');
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    let currentPosition = 0;
+
+    prev.addEventListener('click', () => {
+      currentPosition = Math.min(currentPosition + 300, 0);
+      carousel.style.transform = `translateX(${currentPosition}px)`;
+    });
+
+    next.addEventListener('click', () => {
+      const maxTranslate = -(carousel.scrollWidth - carousel.clientWidth);
+      currentPosition = Math.max(currentPosition - 300, maxTranslate);
+      carousel.style.transform = `translateX(${currentPosition}px)`;
+    });
+  </script>
 </body>
 </html>
